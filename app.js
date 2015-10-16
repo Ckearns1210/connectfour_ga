@@ -67,10 +67,13 @@ Board.prototype.makePlay = function(columnArray, currentPlayer) {
   };
   console.log(occupiedSpaces + ' is the number of occupied spaces in this column!');
   //if the column isn't filled already
+  //Placeholder variable for the index chooser.
   var piecePlacer = 0;
+    //If the column isn't filled already
     if (occupiedSpaces < 6) {
-      switch(piecePlacer){
-         case occupiedSpaces = 0:
+      //check what the occupied spaces amount is, and return the corresponding index value where the piece will be placed.
+      switch(occupiedSpaces){
+         case 0:
          piecePlacer = 5;
          columnArray[piecePlacer].value = currentPlayer;
          break;
@@ -96,12 +99,24 @@ Board.prototype.makePlay = function(columnArray, currentPlayer) {
          break;
        }
       console.log('Piece will be placed at ' + piecePlacer)
-
       console.log('This cell now has a value of ' + columnArray[piecePlacer].value);
     }
-
+    //If column is full, alert you can't place here.
     else alert('You can\'t just shove a piece in here, it is full!');
+
+    switch(this.currentPlayer){
+          case 1:
+          this.currentPlayer = 2;
+          break;
+          case 2:
+          this.currentPlayer = 1;
+          break;
+        }
 };
+
+Board.prototype.checkWin = function () {
+  
+}
 
 
 
