@@ -10,26 +10,42 @@ body {
   margin: 0 auto;
 }
 
-#heading {
-  font-weight: normal;
+#container {
+  width: 75%;
+  height: 600px;
+  margin: auto;
+  padding: 10px;
 }
 
-
-.row {
-  width: 600px
-  height: 100px;
+.col {
+  width: 75px;
+  height: 490px;
   margin: 0 auto;
-  clear: both;
+  float: left;
 
 }
 
 .cell {
+  box-sizing: border-box;
   float: left;
   border: 1px solid #F6FCFB;
   width: 75px;
   height: 75px;
   text-align: center;
-  line-height: 160px;
+}
 
+#left-panel {
+  width: 25%;
+  float: left;
+  margin-top: 400px;
+  font-size: 36px;
+  text-align: right;
+}
 
+#right-panel {
+  width: 25%;
+  float: right;
+  margin-top: 400px;
+  font-size: 36px;
+  text-align: left;
 }
