@@ -1,19 +1,8 @@
 //Cell constructors
-
 var Cell = function() {
   //value placeholder that will take player value.
   this.value = null;
 }
-
-// Cell.prototype.setState = function(player) {
-//   this.value === player;
-//   }
-//
-//
-// Cell.prototype.render = function() {
-//   return this.value;
-// }
-
 
 //Board constructors
 var Board = function () {
@@ -28,7 +17,6 @@ Board.prototype.startGame = function () {
   this.cellsArray = [];
   this.currentPlayer = "blue";
 
-
   console.log('Current Player is Woe 1');
   //Gives me a board of objects with acessible rows and columns
   //Temp Array with all the cells
@@ -42,7 +30,7 @@ Board.prototype.startGame = function () {
   console.log(bigArray);
   //outer loop to repeat the below process 7 times, creating 7 column arrays.
   for (var j = 0; j < 7; j++){
-    //This iterates 6 times
+    //Inner loop to create an array of 6;
     for (var i = 0; i < 6; i++) {
       //each time it pushes into the column Array, and then takes one from the big array
         columnArray.push(bigArray[0]);
@@ -56,55 +44,6 @@ Board.prototype.startGame = function () {
       console.log(this.cellsArray);
   };
 
-//Take two variables, the currentplay, and the clicked Column array from this.cells
-// Board.prototype.makePlay = function(columnArray, currentPlayer) {
-//   //empty variable to hold the number of spaces occupied
-//   var occupiedSpaces = 0;
-//   //Goes through the array, checks if each cell object is occupied, if it is, it adds to the variable.
-//   //This will be used both to check if the column is playable, and also to choose where to place the piece.
-//   for (var i = 0; i < columnArray.length; i++) {
-//     if (columnArray[i].value != null) {
-//       occupiedSpaces += 1
-//     }
-//   };
-//   console.log(occupiedSpaces + ' is the number of occupied spaces in this column!');
-//   //if the column isn't filled already
-//   //Placeholder variable for the index chooser.
-//   var piecePlacer = 0;
-//     //If the column isn't filled already
-//     if (occupiedSpaces < 6) {
-//       //check what the occupied spaces amount is, and return the corresponding index value where the piece will be placed.
-//       switch(occupiedSpaces){
-//          case 0:
-//          piecePlacer = 5;
-//          columnArray[piecePlacer].value = currentPlayer;
-//          break;
-//          case 1:
-//          piecePlacer = 4;
-//          columnArray[piecePlacer].value = currentPlayer;
-//          break;
-//          case 2:
-//          piecePlacer = 3;
-//          columnArray[piecePlacer].value = currentPlayer;
-//          break;
-//          case 3:
-//          piecePlacer = 2;
-//          columnArray[piecePlacer].value = currentPlayer;
-//          break;
-//          case 4:
-//          piecePlacer = 1;
-//          columnArray[piecePlacer].value = currentPlayer;
-//          break;
-//          case 5:
-//          piecePlacer = 0;
-//          columnArray[piecePlacer].value = currentPlayer;
-//          break;
-//        }
-//       console.log('Piece will be placed at ' + piecePlacer)
-//       console.log('This cell now has a value of ' + columnArray[piecePlacer].value);
-//     }
-//     //If column is full, alert you can't place here.
-//     else alert('You can\'t just shove a piece in here, it is full!');
 Board.prototype.switchPlayer = function () {
   switch(this.currentPlayer){
         case 'blue':
@@ -114,33 +53,24 @@ Board.prototype.switchPlayer = function () {
         this.currentPlayer = 'blue';
         break;
       }
-}
-    // switch(this.currentPlayer){
-    //       case 1:
-    //       this.currentPlayer = 2;
-    //       break;
-    //       case 2:
-    //       this.currentPlayer = 1;
-    //       break;
-    //     }
-//array location is equal to this.cellsArray[col][row]
+};
+
 Board.prototype.checkWin = function (currentPlayer) {
   var board = this.cellsArray
-  // console.log(board);
+
 //Check horizontal
     for (var r = 0; r < 4; r++) {
       for (var c = 0; c < 6; c++) {
-        // console.log(((board[r][c].value === board[r+1][c].value) && (board[r+1][c].value === board[r+2][c].value) && (board[r+2][c].value === board[r+3][c].value)))
         if ((board[r][c].value === board[r+1][c].value) && (board[r+1][c].value === board[r+2][c].value) && (board[r+2][c].value === board[r+3][c].value)) {
           if(board[r][c].value !== null) {
-
           this.winner = currentPlayer;
           this.winnerFound = true;
           alert (currentPlayer + ' is the winner!');
         }
       }
     }
-  }
+  };
+
   // Check Vertical
   for (var r = 0; r < 7; r++) {
     for (var c = 0; c < 3; c++) {
@@ -411,10 +341,12 @@ var Game  = {
 
 
 
-//Board Tester
-Game.makeBoard();
-Game.start();
-Game.play();
+$(document).ready(function() {
+  Game.makeBoard();
+  Game.start();
+  Game.play();
+ })
+
 
 // b.makePlay(b.cellsArray[5], "blue");
 // b.makePlay(b.cellsArray[4], "blue");
