@@ -15,9 +15,9 @@ var Board = function () {
 //Start Game prototype
 Board.prototype.startGame = function () {
   this.cellsArray = [];
-  this.currentPlayer = "blue";
+  this.currentPlayer = "Drake";
 
-  console.log('Current Player is Woe 1');
+  console.log('Current Player is Drake');
   //Gives me a board of objects with acessible rows and columns
   //Temp Array with all the cells
   var bigArray = [];
@@ -44,17 +44,19 @@ Board.prototype.startGame = function () {
       console.log(this.cellsArray);
   };
 
+//Switches Player
 Board.prototype.switchPlayer = function () {
   switch(this.currentPlayer){
-        case 'blue':
-        this.currentPlayer = 'red';
+        case 'Drake':
+        this.currentPlayer = 'Rhianna';
         break;
-        case 'red':
-        this.currentPlayer = 'blue';
+        case 'Rhianna':
+        this.currentPlayer = 'Drake';
         break;
       }
 };
 
+//Checks Win
 Board.prototype.checkWin = function (currentPlayer) {
   var board = this.cellsArray
 
@@ -111,6 +113,13 @@ Board.prototype.checkWin = function (currentPlayer) {
     }
   };
 
+  Board.prototype.displayWinner = function (currentPlayer) {
+    $('body').empty().append("<div id = 'winner-message'>");
+    $('body').append("<iframe style='display:none;' src='https://www.youtube.com/embed/rB7Vv1dlqJE?autoplay=1'>")
+    $('div').text(currentPlayer + " has gotten that Hotline Bling!  This could only mean one thing!")
+    $('body').append('<img src="https://d13yacurqjgara.cloudfront.net/users/29332/screenshots/2209323/hotline-bling.gif" height="300px" width="300px">');
+  }
+
 var Game  = {
   board : null,
   makeBoard : function () {
@@ -141,6 +150,9 @@ var Game  = {
             Game.board.cellsArray[0][j].value = currentPlayer;
             Game.board.switchPlayer();
             Game.board.checkWin(currentPlayer);
+            if (Game.board.winnerFound === true) {
+              Game.board.displayWinner(currentPlayer);
+            }
             return;
           }
         }
@@ -157,6 +169,9 @@ var Game  = {
           Game.board.cellsArray[1][j].value = currentPlayer;
           Game.board.switchPlayer();
           Game.board.checkWin(currentPlayer);
+          if (Game.board.winnerFound === true) {
+            Game.board.displayWinner(currentPlayer);
+          }
           return;
         }
       }
@@ -173,6 +188,9 @@ var Game  = {
           Game.board.cellsArray[2][j].value = currentPlayer;
           Game.board.switchPlayer();
           Game.board.checkWin(currentPlayer);
+          if (Game.board.winnerFound === true) {
+            Game.board.displayWinner(currentPlayer);
+          }
           return;
         }
       }
@@ -189,6 +207,9 @@ var Game  = {
           Game.board.cellsArray[3][j].value = currentPlayer;
           Game.board.switchPlayer();
           Game.board.checkWin(currentPlayer);
+          if (Game.board.winnerFound === true) {
+            Game.board.displayWinner(currentPlayer);
+          }
           return;
         }
       }
@@ -205,6 +226,9 @@ var Game  = {
           Game.board.cellsArray[4][j].value = currentPlayer;
           Game.board.switchPlayer();
           Game.board.checkWin(currentPlayer);
+          if (Game.board.winnerFound === true) {
+            Game.board.displayWinner(currentPlayer);
+          }
           return;
         }
       }
@@ -221,6 +245,9 @@ var Game  = {
           Game.board.cellsArray[5][j].value = currentPlayer;
           Game.board.switchPlayer();
           Game.board.checkWin(currentPlayer);
+          if (Game.board.winnerFound === true) {
+            Game.board.displayWinner(currentPlayer);
+          }
           return;
         }
       }
@@ -236,6 +263,9 @@ var Game  = {
           Game.board.cellsArray[6][j].value = currentPlayer;
           Game.board.switchPlayer();
           Game.board.checkWin(currentPlayer);
+          if (Game.board.winnerFound === true) {
+            Game.board.displayWinner(currentPlayer);
+          }
           return;
           }
         }
