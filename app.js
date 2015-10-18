@@ -195,9 +195,10 @@ var Game  = {
     var currentPlayer = Game.board.currentPlayer;
     console.log('Play going!');
     var $cells = $('#cells');
-    console.log($cells)
+    console.log($cells);
     var $columns = $('.col');
     console.log($columns);
+
     $columns.click(function () {
       //If Column One is clicked
       if (this.id === "col1") {
@@ -227,84 +228,181 @@ var Game  = {
           $('#0-5').text(currentPlayer);
             Game.board.cellsArray[0][5].value = currentPlayer;
         }
-        else alert('This column is full!')
+        else alert('This column is full!');
       }
 
       else if (this.id === "col2") {
         console.log('Column 2 has been clicked by ' + currentPlayer);
         if ($('#1-0').text() === "") {
-          $('#1-0').text(currentPlayer)
+          $('#1-0').text(currentPlayer);
+          Game.board.cellsArray[1][0].value = currentPlayer;
         }
         else if ($('#1-1').text() === "") {
           $('#1-1').text(currentPlayer);
+            Game.board.cellsArray[1][1].value = currentPlayer;
         }
         else if ($('#1-2').text() === "") {
           $('#1-2').text(currentPlayer);
+            Game.board.cellsArray[1][2].value = currentPlayer;
         }
         else if ($('#1-3').text() === "") {
           $('#1-3').text(currentPlayer);
+            Game.board.cellsArray[1][3].value = currentPlayer;
         }
         else if ($('#1-4').text() === "") {
           $('#1-4').text(currentPlayer);
+            Game.board.cellsArray[1][4].value = currentPlayer;
         }
         else if ($('#1-5').text() === "") {
           $('#1-5').text(currentPlayer);
+            Game.board.cellsArray[1][5].value = currentPlayer;
         }
         else alert('This column is full!')
       }
 
       else if (this.id === "col3") {
         console.log('Column 3 has been clicked by ' + currentPlayer);
+        if ($('#2-0').text() === "") {
+          $('#2-0').text(currentPlayer);
+          Game.board.cellsArray[2][0].value = currentPlayer;
+        }
+        else if ($('#2-1').text() === "") {
+          $('#2-1').text(currentPlayer);
+            Game.board.cellsArray[2][1].value = currentPlayer;
+        }
+        else if ($('#2-2').text() === "") {
+          $('#2-2').text(currentPlayer);
+            Game.board.cellsArray[2][2].value = currentPlayer;
+        }
+        else if ($('#2-3').text() === "") {
+          $('#2-3').text(currentPlayer);
+            Game.board.cellsArray[2][3].value = currentPlayer;
+        }
+        else if ($('#2-4').text() === "") {
+          $('#2-4').text(currentPlayer);
+            Game.board.cellsArray[2][4].value = currentPlayer;
+        }
+        else if ($('#2-5').text() === "") {
+          $('#2-5').text(currentPlayer);
+            Game.board.cellsArray[2][5].value = currentPlayer;
+        }
+        else alert('This column is full!')
       }
       else if (this.id === "col4") {
         console.log('Column 4 has been clicked by ' + currentPlayer);
+        if ($('#3-0').text() === "") {
+          $('#3-0').text(currentPlayer);
+          Game.board.cellsArray[3][0].value = currentPlayer;
+        }
+        else if ($('#3-1').text() === "") {
+          $('#3-1').text(currentPlayer);
+            Game.board.cellsArray[3][1].value = currentPlayer;
+        }
+        else if ($('#3-2').text() === "") {
+          $('#3-2').text(currentPlayer);
+            Game.board.cellsArray[3][2].value = currentPlayer;
+        }
+        else if ($('#3-3').text() === "") {
+          $('#3-3').text(currentPlayer);
+            Game.board.cellsArray[3][3].value = currentPlayer;
+        }
+        else if ($('#3-4').text() === "") {
+          $('#3-4').text(currentPlayer);
+            Game.board.cellsArray[3][4].value = currentPlayer;
+        }
+        else if ($('#3-5').text() === "") {
+          $('#3-5').text(currentPlayer);
+            Game.board.cellsArray[3][5].value = currentPlayer;
+        }
+        else alert('This column is full!')
       }
       else if (this.id === "col5") {
         console.log('Column 5 has been clicked by ' + currentPlayer);
+        if ($('#4-0').text() === "") {
+          $('#4-0').text(currentPlayer);
+          Game.board.cellsArray[4][0].value = currentPlayer;
+        }
+        else if ($('#4-1').text() === "") {
+          $('#4-1').text(currentPlayer);
+            Game.board.cellsArray[4][1].value = currentPlayer;
+        }
+        else if ($('#4-2').text() === "") {
+          $('#4-2').text(currentPlayer);
+            Game.board.cellsArray[4][2].value = currentPlayer;
+        }
+        else if ($('#4-3').text() === "") {
+          $('#4-3').text(currentPlayer);
+            Game.board.cellsArray[4][3].value = currentPlayer;
+        }
+        else if ($('#4-4').text() === "") {
+          $('#4-4').text(currentPlayer);
+            Game.board.cellsArray[4][4].value = currentPlayer;
+        }
+        else if ($('#4-5').text() === "") {
+          $('#4-5').text(currentPlayer);
+            Game.board.cellsArray[4][5].value = currentPlayer;
+        }
+        else alert('This column is full!')
       }
       else if (this.id === "col6") {
         console.log('Column 6 has been clicked by ' + currentPlayer);
+        if ($('#5-0').text() === "") {
+          $('#5-0').text(currentPlayer);
+          Game.board.cellsArray[5][0].value = currentPlayer;
+        }
+        else if ($('#5-1').text() === "") {
+          $('#5-1').text(currentPlayer);
+            Game.board.cellsArray[5][1].value = currentPlayer;
+        }
+        else if ($('#5-2').text() === "") {
+          $('#5-2').text(currentPlayer);
+            Game.board.cellsArray[5][2].value = currentPlayer;
+        }
+        else if ($('#5-3').text() === "") {
+          $('#5-3').text(currentPlayer);
+            Game.board.cellsArray[5][3].value = currentPlayer;
+        }
+        else if ($('#5-4').text() === "") {
+          $('#5-4').text(currentPlayer);
+            Game.board.cellsArray[5][4].value = currentPlayer;
+        }
+        else if ($('#5-5').text() === "") {
+          $('#5-5').text(currentPlayer);
+            Game.board.cellsArray[5][5].value = currentPlayer;
+        }
+        else alert('This column is full!')
       }
-      else console.log('Column 7 has been clicked by ' + currentPlayer);
+      else if (this.id === "col7"){
+      console.log('Column 7 has been clicked by ' + currentPlayer);
+        if ($('#6-0').text() === "") {
+          $('#6-0').text(currentPlayer);
+          Game.board.cellsArray[6][0].value = currentPlayer;
+        }
+        else if ($('#6-1').text() === "") {
+          $('#6-1').text(currentPlayer);
+            Game.board.cellsArray[6][1].value = currentPlayer;
+        }
+        else if ($('#6-2').text() === "") {
+          $('#6-2').text(currentPlayer);
+            Game.board.cellsArray[6][2].value = currentPlayer;
+        }
+        else if ($('#6-3').text() === "") {
+          $('#6-3').text(currentPlayer);
+            Game.board.cellsArray[6][3].value = currentPlayer;
+        }
+        else if ($('#6-4').text() === "") {
+          $('#6-4').text(currentPlayer);
+            Game.board.cellsArray[6][4].value = currentPlayer;
+        }
+        else if ($('#6-5').text() === "") {
+          $('#6-5').text(currentPlayer);
+            Game.board.cellsArray[6][5].value = currentPlayer;
+        }
+          else alert('This column is full!');
+      }
     })
-
-  //   var $col1 = $('#col1');
-  //   console.log($col1);
-  //   $col1.click(function () {
-  //     console.log('Column 1 has been clicked!')
-  //   });
-  //   var $col2 = $('#col2');
-  //   console.log($col2);
-  //   $col2.click(function () {
-  //     console.log('Column 2 has been clicked!')
-  //   });
-  //   var $col3 = $('#col3');
-  //   console.log($col3);
-  //   $col3.click(function () {
-  //     console.log('Column 3 has been clicked!')
-  //   });
-  //   var $col4 = $('#col4');
-  //   console.log($col4);
-  //   $col4.click(function () {
-  //     console.log('Column 4 has been clicked!')
-  //   });
-  //   var $col5 = $('#col5');
-  //   console.log($col5);
-  //   $col5.click(function () {
-  //     console.log('Column 5 has been clicked!')
-  //   });
-  //   var $col6 = $('#col6');
-  //   console.log($col6);
-  //   $col6.click(function () {
-  //     console.log('Column 6 has been clicked!')
-  //   });
-  //   var $col7 = $('#col7');
-  //   console.log($col7);
-  //   $col7.click(function () {
-  //     console.log('Column 7 has been clicked!')
-  //   });
-  },
-}
+  }
+};
 
 
 
