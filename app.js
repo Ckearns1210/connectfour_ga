@@ -130,225 +130,113 @@ var Game  = {
 
     $columns.click(function () {
       var currentPlayer = Game.board.currentPlayer;
+
       //If Column One is clicked
-      if (this.id === "col1") {
+            if (this.id === 'col0') {
+          //Check for the lowest free spot and add piece.
+          console.log('Column 0' + ' has been clicked by ' + currentPlayer);
+          for(var j = 0; j < 6; j++) {
+          if ($('#0-' + j).text() === "") {
+            $('#0-' + j).text(currentPlayer);
+            Game.board.cellsArray[0][j].value = currentPlayer;
+            Game.board.switchPlayer();
+            Game.board.checkWin(currentPlayer);
+            return;
+          }
+        }
+          alert('This column is full!')
+      }
+      //If Column Two is clicked
+          else if (this.id === 'col1') {
         //Check for the lowest free spot and add piece.
-        console.log('Column 1 has been clicked by ' + currentPlayer);
-        if ($('#0-0').text() === "") {
-          $('#0-0').text(currentPlayer);
-          Game.board.cellsArray[0][0].value = currentPlayer;
+        console.log('Column 1' + ' has been clicked by ' + currentPlayer);
+        for(var j = 0; j < 6; j++) {
+        if ($('#1-' + j).text() === "") {
+          $('#1-' + j).text(currentPlayer);
+          Game.board.cellsArray[1][j].value = currentPlayer;
+          Game.board.switchPlayer();
+          Game.board.checkWin(currentPlayer);
+          return;
         }
-        else if ($('#0-1').text() === "") {
-          $('#0-1').text(currentPlayer);
-            Game.board.cellsArray[0][1].value = currentPlayer;
-        }
-        else if ($('#0-2').text() === "") {
-          $('#0-2').text(currentPlayer);
-            Game.board.cellsArray[0][2].value = currentPlayer;
-        }
-        else if ($('#0-3').text() === "") {
-          $('#0-3').text(currentPlayer);
-            Game.board.cellsArray[0][3].value = currentPlayer;
-        }
-        else if ($('#0-4').text() === "") {
-          $('#0-4').text(currentPlayer);
-            Game.board.cellsArray[0][4].value = currentPlayer;
-        }
-        else if ($('#0-5').text() === "") {
-          $('#0-5').text(currentPlayer);
-            Game.board.cellsArray[0][5].value = currentPlayer;
-        }
-        else alert('This column is full!');
       }
-
-      else if (this.id === "col2") {
-        console.log('Column 2 has been clicked by ' + currentPlayer);
-        if ($('#1-0').text() === "") {
-          $('#1-0').text(currentPlayer);
-          Game.board.cellsArray[1][0].value = currentPlayer;
+        alert('This column is full!')
+    }
+          else if (this.id === 'col2') {
+        //Check for the lowest free spot and add piece.
+        console.log('Column 2' + ' has been clicked by ' + currentPlayer);
+        for(var j = 0; j < 6; j++) {
+        if ($('#2-' + j).text() === "") {
+          $('#2-' + j).text(currentPlayer);
+          Game.board.cellsArray[2][j].value = currentPlayer;
+          Game.board.switchPlayer();
+          Game.board.checkWin(currentPlayer);
+          return;
         }
-        else if ($('#1-1').text() === "") {
-          $('#1-1').text(currentPlayer);
-            Game.board.cellsArray[1][1].value = currentPlayer;
-        }
-        else if ($('#1-2').text() === "") {
-          $('#1-2').text(currentPlayer);
-            Game.board.cellsArray[1][2].value = currentPlayer;
-        }
-        else if ($('#1-3').text() === "") {
-          $('#1-3').text(currentPlayer);
-            Game.board.cellsArray[1][3].value = currentPlayer;
-        }
-        else if ($('#1-4').text() === "") {
-          $('#1-4').text(currentPlayer);
-            Game.board.cellsArray[1][4].value = currentPlayer;
-        }
-        else if ($('#1-5').text() === "") {
-          $('#1-5').text(currentPlayer);
-            Game.board.cellsArray[1][5].value = currentPlayer;
-        }
-        else alert('This column is full!')
       }
-
-      else if (this.id === "col3") {
-        console.log('Column 3 has been clicked by ' + currentPlayer);
-        if ($('#2-0').text() === "") {
-          $('#2-0').text(currentPlayer);
-          Game.board.cellsArray[2][0].value = currentPlayer;
+        alert('This column is full!')
+    }
+          else if (this.id === 'col3') {
+        //Check for the lowest free spot and add piece.
+        console.log('Column 3' + ' has been clicked by ' + currentPlayer);
+        for(var j = 0; j < 6; j++) {
+        if ($('#3-' + j).text() === "") {
+          $('#3-' + j).text(currentPlayer);
+          Game.board.cellsArray[3][j].value = currentPlayer;
+          Game.board.switchPlayer();
+          Game.board.checkWin(currentPlayer);
+          return;
         }
-        else if ($('#2-1').text() === "") {
-          $('#2-1').text(currentPlayer);
-            Game.board.cellsArray[2][1].value = currentPlayer;
-        }
-        else if ($('#2-2').text() === "") {
-          $('#2-2').text(currentPlayer);
-            Game.board.cellsArray[2][2].value = currentPlayer;
-        }
-        else if ($('#2-3').text() === "") {
-          $('#2-3').text(currentPlayer);
-            Game.board.cellsArray[2][3].value = currentPlayer;
-        }
-        else if ($('#2-4').text() === "") {
-          $('#2-4').text(currentPlayer);
-            Game.board.cellsArray[2][4].value = currentPlayer;
-        }
-        else if ($('#2-5').text() === "") {
-          $('#2-5').text(currentPlayer);
-            Game.board.cellsArray[2][5].value = currentPlayer;
-        }
-        else alert('This column is full!')
       }
-      else if (this.id === "col4") {
-        console.log('Column 4 has been clicked by ' + currentPlayer);
-        if ($('#3-0').text() === "") {
-          $('#3-0').text(currentPlayer);
-          Game.board.cellsArray[3][0].value = currentPlayer;
+        alert('This column is full!')
+    }
+          else if (this.id === 'col4') {
+        //Check for the lowest free spot and add piece.
+        console.log('Column 4' + ' has been clicked by ' + currentPlayer);
+        for(var j = 0; j < 6; j++) {
+        if ($('#4-' + j).text() === "") {
+          $('#4-' + j).text(currentPlayer);
+          Game.board.cellsArray[4][j].value = currentPlayer;
+          Game.board.switchPlayer();
+          Game.board.checkWin(currentPlayer);
+          return;
         }
-        else if ($('#3-1').text() === "") {
-          $('#3-1').text(currentPlayer);
-            Game.board.cellsArray[3][1].value = currentPlayer;
-        }
-        else if ($('#3-2').text() === "") {
-          $('#3-2').text(currentPlayer);
-            Game.board.cellsArray[3][2].value = currentPlayer;
-        }
-        else if ($('#3-3').text() === "") {
-          $('#3-3').text(currentPlayer);
-            Game.board.cellsArray[3][3].value = currentPlayer;
-        }
-        else if ($('#3-4').text() === "") {
-          $('#3-4').text(currentPlayer);
-            Game.board.cellsArray[3][4].value = currentPlayer;
-        }
-        else if ($('#3-5').text() === "") {
-          $('#3-5').text(currentPlayer);
-            Game.board.cellsArray[3][5].value = currentPlayer;
-        }
-        else alert('This column is full!')
       }
-      else if (this.id === "col5") {
-        console.log('Column 5 has been clicked by ' + currentPlayer);
-        if ($('#4-0').text() === "") {
-          $('#4-0').text(currentPlayer);
-          Game.board.cellsArray[4][0].value = currentPlayer;
+        alert('This column is full!')
+    }
+          else if (this.id === 'col5') {
+        //Check for the lowest free spot and add piece.
+        console.log('Column 5' + ' has been clicked by ' + currentPlayer);
+        for(var j = 0; j < 6; j++) {
+        if ($('#5-' + j).text() === "") {
+          $('#5-' + j).text(currentPlayer);
+          Game.board.cellsArray[5][j].value = currentPlayer;
+          Game.board.switchPlayer();
+          Game.board.checkWin(currentPlayer);
+          return;
         }
-        else if ($('#4-1').text() === "") {
-          $('#4-1').text(currentPlayer);
-            Game.board.cellsArray[4][1].value = currentPlayer;
-        }
-        else if ($('#4-2').text() === "") {
-          $('#4-2').text(currentPlayer);
-            Game.board.cellsArray[4][2].value = currentPlayer;
-        }
-        else if ($('#4-3').text() === "") {
-          $('#4-3').text(currentPlayer);
-            Game.board.cellsArray[4][3].value = currentPlayer;
-        }
-        else if ($('#4-4').text() === "") {
-          $('#4-4').text(currentPlayer);
-            Game.board.cellsArray[4][4].value = currentPlayer;
-        }
-        else if ($('#4-5').text() === "") {
-          $('#4-5').text(currentPlayer);
-            Game.board.cellsArray[4][5].value = currentPlayer;
-        }
-        else alert('This column is full!')
       }
-      else if (this.id === "col6") {
-        console.log('Column 6 has been clicked by ' + currentPlayer);
-        if ($('#5-0').text() === "") {
-          $('#5-0').text(currentPlayer);
-          Game.board.cellsArray[5][0].value = currentPlayer;
+        alert('This column is full!')
+    }
+          else if (this.id === 'col6') {
+        //Check for the lowest free spot and add piece.
+        console.log('Column 6' + ' has been clicked by ' + currentPlayer);
+        for(var j = 0; j < 6; j++) {
+        if ($('#6-' + j).text() === "") {
+          $('#6-' + j).text(currentPlayer);
+          Game.board.cellsArray[6][j].value = currentPlayer;
+          Game.board.switchPlayer();
+          Game.board.checkWin(currentPlayer);
+          return;
+          }
         }
-        else if ($('#5-1').text() === "") {
-          $('#5-1').text(currentPlayer);
-            Game.board.cellsArray[5][1].value = currentPlayer;
-        }
-        else if ($('#5-2').text() === "") {
-          $('#5-2').text(currentPlayer);
-            Game.board.cellsArray[5][2].value = currentPlayer;
-        }
-        else if ($('#5-3').text() === "") {
-          $('#5-3').text(currentPlayer);
-            Game.board.cellsArray[5][3].value = currentPlayer;
-        }
-        else if ($('#5-4').text() === "") {
-          $('#5-4').text(currentPlayer);
-            Game.board.cellsArray[5][4].value = currentPlayer;
-        }
-        else if ($('#5-5').text() === "") {
-          $('#5-5').text(currentPlayer);
-            Game.board.cellsArray[5][5].value = currentPlayer;
-        }
-        else alert('This column is full!')
+          alert('This column is full!')
       }
-      else if (this.id === "col7"){
-      console.log('Column 7 has been clicked by ' + currentPlayer);
-        if ($('#6-0').text() === "") {
-          $('#6-0').text(currentPlayer);
-          Game.board.cellsArray[6][0].value = currentPlayer;
-        }
-        else if ($('#6-1').text() === "") {
-          $('#6-1').text(currentPlayer);
-            Game.board.cellsArray[6][1].value = currentPlayer;
-        }
-        else if ($('#6-2').text() === "") {
-          $('#6-2').text(currentPlayer);
-            Game.board.cellsArray[6][2].value = currentPlayer;
-        }
-        else if ($('#6-3').text() === "") {
-          $('#6-3').text(currentPlayer);
-            Game.board.cellsArray[6][3].value = currentPlayer;
-        }
-        else if ($('#6-4').text() === "") {
-          $('#6-4').text(currentPlayer);
-            Game.board.cellsArray[6][4].value = currentPlayer;
-        }
-        else if ($('#6-5').text() === "") {
-          $('#6-5').text(currentPlayer);
-            Game.board.cellsArray[6][5].value = currentPlayer;
-        }
-          else alert('This column is full!');
-      }
-        Game.board.checkWin(currentPlayer);
-        Game.board.switchPlayer();
-
     })
   }
-};
-
-
-
-
+}
 
 $(document).ready(function() {
   Game.makeBoard();
   Game.start();
   Game.play();
  })
-
-
-// b.makePlay(b.cellsArray[5], "blue");
-// b.makePlay(b.cellsArray[4], "blue");
-// b.makePlay(b.cellsArray[3], "blue");
-// b.makePlay(b.cellsArray[2], "blue");
