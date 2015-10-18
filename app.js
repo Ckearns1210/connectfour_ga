@@ -124,7 +124,7 @@ Board.prototype.switchPlayer = function () {
     //       break;
     //     }
 //array location is equal to this.cellsArray[col][row]
-Board.prototype.checkWinner = function () {
+Board.prototype.checkWin = function (currentPlayer) {
   var board = this.cellsArray
   // console.log(board);
 //Check horizontal
@@ -134,9 +134,9 @@ Board.prototype.checkWinner = function () {
         if ((board[r][c].value === board[r+1][c].value) && (board[r+1][c].value === board[r+2][c].value) && (board[r+2][c].value === board[r+3][c].value)) {
           if(board[r][c].value !== null) {
 
-          this.winner = this.currentplayer;
+          this.winner = currentPlayer;
           this.winnerFound = true;
-          return 'is the winner!';
+          alert (currentPlayer + ' is the winner!');
         }
       }
     }
@@ -146,9 +146,9 @@ Board.prototype.checkWinner = function () {
     for (var c = 0; c < 3; c++) {
       if ((board[r][c].value === board[r][c+1].value) && (board[r][c+1].value === board[r][c+2].value) && (board[r][c+2].value === board[r][c+3].value)) {
         if(board[r][c].value !== null) {
-          this.winner = this.currentplayer;
+          this.winner = currentPlayer;
           this.winnerFound = true;
-          return 'is the winner!';
+          alert (currentPlayer + ' is the winner!');
         }
       }
     }
@@ -159,9 +159,9 @@ Board.prototype.checkWinner = function () {
       for (var c = 0; c < 3; c++) {
         if ((board[r][c].value === board[r+1][c+1].value) && (board[r+1][c+1].value === board[r+2][c+2].value) && (board[r+2][c+2].value === board[r+3][c+3].value))  {
           if(board[r][c].value !== null) {
-            this.winner = this.currentplayer;
+            this.winner = currentPlayer;
             this.winnerFound = true;
-            return 'is the winner!';
+            alert (currentPlayer + ' is the winner!');
           }
         }
       }
@@ -172,9 +172,9 @@ Board.prototype.checkWinner = function () {
         for (var c = 0; c < 3; c++) {
           if ((board[r][c].value === board[r-1][c+1].value) && (board[r-1][c+1].value === board[r-2][c+2].value) && (board[r-2][c+2].value === board[r-3][c+3].value)) {
             if(board[r][c].value !== null) {
-              this.winner = this.currentplayer;
+              this.winner = currentPlayer;
               this.winnerFound = true;
-              return 'is the winner!';
+              alert (currentPlayer + ' is the winner!');
           }
         }
       }
@@ -400,7 +400,9 @@ var Game  = {
         }
           else alert('This column is full!');
       }
+        Game.board.checkWin(currentPlayer);
         Game.board.switchPlayer();
+
     })
   }
 };
@@ -412,7 +414,7 @@ var Game  = {
 //Board Tester
 Game.makeBoard();
 Game.start();
-Game.play(this.currentPlayer);
+Game.play();
 
 // b.makePlay(b.cellsArray[5], "blue");
 // b.makePlay(b.cellsArray[4], "blue");
