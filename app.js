@@ -131,7 +131,7 @@ var Game  = {
     $columns.click(function () {
       var currentPlayer = Game.board.currentPlayer;
 
-      //If Column One is clicked
+      //If Column Zero is clicked
             if (this.id === 'col0') {
           //Check for the lowest free spot and add piece.
           console.log('Column 0' + ' has been clicked by ' + currentPlayer);
@@ -146,7 +146,8 @@ var Game  = {
         }
           alert('This column is full!')
       }
-      //If Column Two is clicked
+
+      //If Column One is clicked
           else if (this.id === 'col1') {
         //Check for the lowest free spot and add piece.
         console.log('Column 1' + ' has been clicked by ' + currentPlayer);
@@ -161,6 +162,8 @@ var Game  = {
       }
         alert('This column is full!')
     }
+
+      //If Column Two is clicked
           else if (this.id === 'col2') {
         //Check for the lowest free spot and add piece.
         console.log('Column 2' + ' has been clicked by ' + currentPlayer);
@@ -175,6 +178,8 @@ var Game  = {
       }
         alert('This column is full!')
     }
+
+      //If Column Three is clicked
           else if (this.id === 'col3') {
         //Check for the lowest free spot and add piece.
         console.log('Column 3' + ' has been clicked by ' + currentPlayer);
@@ -189,6 +194,8 @@ var Game  = {
       }
         alert('This column is full!')
     }
+
+      //If Column Four is clicked
           else if (this.id === 'col4') {
         //Check for the lowest free spot and add piece.
         console.log('Column 4' + ' has been clicked by ' + currentPlayer);
@@ -203,6 +210,8 @@ var Game  = {
       }
         alert('This column is full!')
     }
+
+      //If Column Five is clicked
           else if (this.id === 'col5') {
         //Check for the lowest free spot and add piece.
         console.log('Column 5' + ' has been clicked by ' + currentPlayer);
@@ -217,6 +226,7 @@ var Game  = {
       }
         alert('This column is full!')
     }
+      //If Column Six is clicked
           else if (this.id === 'col6') {
         //Check for the lowest free spot and add piece.
         console.log('Column 6' + ' has been clicked by ' + currentPlayer);
