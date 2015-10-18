@@ -1,7 +1,13 @@
+@font-face {
+  font-family: Drake;
+  src: url('Late-Regular.otf') format("opentype");
+}
+
+
 body {
-  font-family: "Helvetica", "Arial", sans-serif;
+  font-family: "Drake", "Helvetica", "Arial", sans-serif;
   background-color: #FFB4C2;
-  color: #F6FCFB;
+  color: black;
   font-weight: bold;
   font-style: oblique;
   text-align: center;
@@ -10,16 +16,21 @@ body {
   margin: 0 auto;
 }
 
+#heading {
+  text-align: center;
+  font-size: 65px;
+}
 #container {
   width: 75%;
-  height: 600px;
-  margin: auto;
+  width: 525px;
+  height: 450px;
+  margin: 25px auto ;
   padding: 10px;
 }
 
 .col {
   width: 75px;
-  height: 490px;
+  height: 450px;
   margin: 0 auto;
   float: left;
 
@@ -34,18 +45,34 @@ body {
   text-align: center;
 }
 
-#bling {
-  width: 25%;
-  font-size: 36px;
-  text-align: center;
+#instructions {
+  font-size: 23px;
+  margin: 0 auto;
+}
+
+#quote {
+  font-size: 23px
 }
 
 
-
 #winner-message {
-  margin-top: 20px;
+  margin-top: 80px;
+  margin-left: 20%;
+  margin-right: 20%;
   text-align: center;
   margin: 0, auto;
   font-size: 50px;
-  margin-bottom: 65px;
+  margin-bottom: 75px;
+}
+
+#currentplayer1 {
+  padding: 100px;
+  float: left;
+  font-size: 25px;
+}
+
+#currentplayer2 {
+  padding: 100px;
+  float: right;
+  font-size: 25px;
 }

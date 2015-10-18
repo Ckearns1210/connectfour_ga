@@ -1,3 +1,11 @@
+/*
+AUTHOR: COLIN KEARNS
+DATE: 10/18/2015
+DRAKE FOUR*/
+
+
+
+
 //Cell constructors
 var Cell = function() {
   //value placeholder that will take player value.
@@ -8,16 +16,24 @@ var Cell = function() {
 var Board = function () {
   this.cellsArray = [];
   this.currentPlayer = null;
+  this.image = null;
   this.winner = null;
   this.winnerFound = false;
  };
 
 //Start Game prototype
 Board.prototype.startGame = function () {
+  var $currentPlayerMarker1 = $('<div id = "Drake">').html("Drake");
+  var $currentPlayerMarker2 = $('<div id = "6">').html('6 God');
+  $('#currentplayer1').append($currentPlayerMarker1);
   this.cellsArray = [];
   this.currentPlayer = "Drake";
+  this.image = $("<img id='Drake' src='icon03.png'/>");
+  this.currentPlayerMarker1 = $currentPlayerMarker1;
+  this.currentPlayerMarker2 = $currentPlayerMarker2;
 
   console.log('Current Player is Drake');
+
   //Gives me a board of objects with acessible rows and columns
   //Temp Array with all the cells
   var bigArray = [];
@@ -48,10 +64,12 @@ Board.prototype.startGame = function () {
 Board.prototype.switchPlayer = function () {
   switch(this.currentPlayer){
         case 'Drake':
-        this.currentPlayer = 'Rhianna';
+        this.currentPlayer = 'The 6';
+        this.image = $("<img id='6God' src='pray4the6.png'/>");
         break;
-        case 'Rhianna':
+        case 'The 6':
         this.currentPlayer = 'Drake';
+        this.image = $("<img id='Drake' src='icon03.png'/>");
         break;
       }
 };
@@ -67,7 +85,6 @@ Board.prototype.checkWin = function (currentPlayer) {
           if(board[r][c].value !== null) {
           this.winner = currentPlayer;
           this.winnerFound = true;
-          alert (currentPlayer + ' is the winner!');
         }
       }
     }
@@ -80,7 +97,6 @@ Board.prototype.checkWin = function (currentPlayer) {
         if(board[r][c].value !== null) {
           this.winner = currentPlayer;
           this.winnerFound = true;
-          alert (currentPlayer + ' is the winner!');
         }
       }
     }
@@ -93,7 +109,6 @@ Board.prototype.checkWin = function (currentPlayer) {
           if(board[r][c].value !== null) {
             this.winner = currentPlayer;
             this.winnerFound = true;
-            alert (currentPlayer + ' is the winner!');
           }
         }
       }
@@ -106,7 +121,6 @@ Board.prototype.checkWin = function (currentPlayer) {
             if(board[r][c].value !== null) {
               this.winner = currentPlayer;
               this.winnerFound = true;
-              alert (currentPlayer + ' is the winner!');
           }
         }
       }
@@ -121,7 +135,9 @@ Board.prototype.checkWin = function (currentPlayer) {
     $('body').append('<img src="https://d13yacurqjgara.cloudfront.net/users/29332/screenshots/2209323/hotline-bling.gif" height="300px" width="300px">');
   }
 
+//Game Object Literal
 var Game  = {
+  //Blank board
   board : null,
   makeBoard : function () {
     this.board = new Board ();
@@ -135,9 +151,21 @@ var Game  = {
     console.log('Play going!');
     var $columns = $('.col');
 
+    //Click event on each Column
     $columns.click(function () {
+      //used to pass in current player to function.
       var currentPlayer = Game.board.currentPlayer;
+      //used to change game piece
+      var tokenImage = Game.board.image;
 
+      if (currentPlayer === "Drake") {
+        Game.board.currentPlayerMarker1.remove();
+        $('#currentplayer2').append(Game.board.currentPlayerMarker2);
+      }
+      else if (currentPlayer === 'The 6'){
+          Game.board.currentPlayerMarker2.remove();
+          $('#currentplayer1').append(Game.board.currentPlayerMarker1);
+        }
       //If Column Zero is clicked
             if (this.id === 'col0') {
           //Check for the lowest free spot and add piece.
@@ -145,6 +173,7 @@ var Game  = {
           for(var j = 0; j < 6; j++) {
           if ($('#0-' + j).text() === "") {
             $('#0-' + j).text(currentPlayer);
+            $('#0-' + j).append(tokenImage);
             Game.board.cellsArray[0][j].value = currentPlayer;
             Game.board.switchPlayer();
             Game.board.checkWin(currentPlayer);
@@ -164,6 +193,7 @@ var Game  = {
         for(var j = 0; j < 6; j++) {
         if ($('#1-' + j).text() === "") {
           $('#1-' + j).text(currentPlayer);
+          $('#1-' + j).append(tokenImage);
           Game.board.cellsArray[1][j].value = currentPlayer;
           Game.board.switchPlayer();
           Game.board.checkWin(currentPlayer);
@@ -183,6 +213,7 @@ var Game  = {
         for(var j = 0; j < 6; j++) {
         if ($('#2-' + j).text() === "") {
           $('#2-' + j).text(currentPlayer);
+          $('#2-' + j).append(tokenImage);
           Game.board.cellsArray[2][j].value = currentPlayer;
           Game.board.switchPlayer();
           Game.board.checkWin(currentPlayer);
@@ -192,7 +223,7 @@ var Game  = {
           return;
         }
       }
-        alert('This column is full!')
+        alert('This column is full!');
     }
 
       //If Column Three is clicked
@@ -202,6 +233,7 @@ var Game  = {
         for(var j = 0; j < 6; j++) {
         if ($('#3-' + j).text() === "") {
           $('#3-' + j).text(currentPlayer);
+          $('#3-' + j).append(tokenImage);
           Game.board.cellsArray[3][j].value = currentPlayer;
           Game.board.switchPlayer();
           Game.board.checkWin(currentPlayer);
@@ -221,6 +253,7 @@ var Game  = {
         for(var j = 0; j < 6; j++) {
         if ($('#4-' + j).text() === "") {
           $('#4-' + j).text(currentPlayer);
+          $('#4-' + j).append(tokenImage);
           Game.board.cellsArray[4][j].value = currentPlayer;
           Game.board.switchPlayer();
           Game.board.checkWin(currentPlayer);
@@ -240,6 +273,7 @@ var Game  = {
         for(var j = 0; j < 6; j++) {
         if ($('#5-' + j).text() === "") {
           $('#5-' + j).text(currentPlayer);
+          $('#5-' + j).append(tokenImage);
           Game.board.cellsArray[5][j].value = currentPlayer;
           Game.board.switchPlayer();
           Game.board.checkWin(currentPlayer);
@@ -258,6 +292,7 @@ var Game  = {
         for(var j = 0; j < 6; j++) {
         if ($('#6-' + j).text() === "") {
           $('#6-' + j).text(currentPlayer);
+          $('#6-' + j).append(tokenImage);
           Game.board.cellsArray[6][j].value = currentPlayer;
           Game.board.switchPlayer();
           Game.board.checkWin(currentPlayer);
