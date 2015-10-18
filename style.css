@@ -34,21 +34,13 @@ body {
   text-align: center;
 }
 
-#left-panel {
+#bling {
   width: 25%;
-  float: left;
-  margin-top: 400px;
   font-size: 36px;
-  text-align: right;
+  text-align: center;
 }
 
-#right-panel {
-  width: 25%;
-  float: right;
-  margin-top: 400px;
-  font-size: 36px;
-  text-align: left;
-}
+
 
 #winner-message {
   margin-top: 20px;

@@ -113,6 +113,7 @@ Board.prototype.checkWin = function (currentPlayer) {
     }
   };
 
+  //Clears body and displays win message and image.
   Board.prototype.displayWinner = function (currentPlayer) {
     $('body').empty().append("<div id = 'winner-message'>");
     $('body').append("<iframe style='display:none;' src='https://www.youtube.com/embed/rB7Vv1dlqJE?autoplay=1'>")
@@ -132,10 +133,7 @@ var Game  = {
   },
   play : function () {
     console.log('Play going!');
-    var $cells = $('#cells');
-    console.log($cells);
     var $columns = $('.col');
-    console.log($columns);
 
     $columns.click(function () {
       var currentPlayer = Game.board.currentPlayer;
@@ -276,6 +274,7 @@ var Game  = {
 }
 
 $(document).ready(function() {
+  $('body').append("<iframe style='display:none;' src='https://www.youtube.com/embed/hNMMa69laFM?autoplay=1'>")
   Game.makeBoard();
   Game.start();
   Game.play();
