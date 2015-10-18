@@ -57,55 +57,64 @@ Board.prototype.startGame = function () {
   };
 
 //Take two variables, the currentplay, and the clicked Column array from this.cells
-Board.prototype.makePlay = function(columnArray, currentPlayer) {
-  //empty variable to hold the number of spaces occupied
-  var occupiedSpaces = 0;
-  //Goes through the array, checks if each cell object is occupied, if it is, it adds to the variable.
-  //This will be used both to check if the column is playable, and also to choose where to place the piece.
-  for (var i = 0; i < columnArray.length; i++) {
-    if (columnArray[i].value != null) {
-      occupiedSpaces += 1
-    }
-  };
-  console.log(occupiedSpaces + ' is the number of occupied spaces in this column!');
-  //if the column isn't filled already
-  //Placeholder variable for the index chooser.
-  var piecePlacer = 0;
-    //If the column isn't filled already
-    if (occupiedSpaces < 6) {
-      //check what the occupied spaces amount is, and return the corresponding index value where the piece will be placed.
-      switch(occupiedSpaces){
-         case 0:
-         piecePlacer = 5;
-         columnArray[piecePlacer].value = currentPlayer;
-         break;
-         case 1:
-         piecePlacer = 4;
-         columnArray[piecePlacer].value = currentPlayer;
-         break;
-         case 2:
-         piecePlacer = 3;
-         columnArray[piecePlacer].value = currentPlayer;
-         break;
-         case 3:
-         piecePlacer = 2;
-         columnArray[piecePlacer].value = currentPlayer;
-         break;
-         case 4:
-         piecePlacer = 1;
-         columnArray[piecePlacer].value = currentPlayer;
-         break;
-         case 5:
-         piecePlacer = 0;
-         columnArray[piecePlacer].value = currentPlayer;
-         break;
-       }
-      console.log('Piece will be placed at ' + piecePlacer)
-      console.log('This cell now has a value of ' + columnArray[piecePlacer].value);
-    }
-    //If column is full, alert you can't place here.
-    else alert('You can\'t just shove a piece in here, it is full!');
-
+// Board.prototype.makePlay = function(columnArray, currentPlayer) {
+//   //empty variable to hold the number of spaces occupied
+//   var occupiedSpaces = 0;
+//   //Goes through the array, checks if each cell object is occupied, if it is, it adds to the variable.
+//   //This will be used both to check if the column is playable, and also to choose where to place the piece.
+//   for (var i = 0; i < columnArray.length; i++) {
+//     if (columnArray[i].value != null) {
+//       occupiedSpaces += 1
+//     }
+//   };
+//   console.log(occupiedSpaces + ' is the number of occupied spaces in this column!');
+//   //if the column isn't filled already
+//   //Placeholder variable for the index chooser.
+//   var piecePlacer = 0;
+//     //If the column isn't filled already
+//     if (occupiedSpaces < 6) {
+//       //check what the occupied spaces amount is, and return the corresponding index value where the piece will be placed.
+//       switch(occupiedSpaces){
+//          case 0:
+//          piecePlacer = 5;
+//          columnArray[piecePlacer].value = currentPlayer;
+//          break;
+//          case 1:
+//          piecePlacer = 4;
+//          columnArray[piecePlacer].value = currentPlayer;
+//          break;
+//          case 2:
+//          piecePlacer = 3;
+//          columnArray[piecePlacer].value = currentPlayer;
+//          break;
+//          case 3:
+//          piecePlacer = 2;
+//          columnArray[piecePlacer].value = currentPlayer;
+//          break;
+//          case 4:
+//          piecePlacer = 1;
+//          columnArray[piecePlacer].value = currentPlayer;
+//          break;
+//          case 5:
+//          piecePlacer = 0;
+//          columnArray[piecePlacer].value = currentPlayer;
+//          break;
+//        }
+//       console.log('Piece will be placed at ' + piecePlacer)
+//       console.log('This cell now has a value of ' + columnArray[piecePlacer].value);
+//     }
+//     //If column is full, alert you can't place here.
+//     else alert('You can\'t just shove a piece in here, it is full!');
+Board.prototype.switchPlayer = function () {
+  switch(this.currentPlayer){
+        case blue:
+        this.currentPlayer = red;
+        break;
+        case 2:
+        this.currentPlayer = 1;
+        break;
+      }
+}
     // switch(this.currentPlayer){
     //       case 1:
     //       this.currentPlayer = 2;
@@ -114,7 +123,6 @@ Board.prototype.makePlay = function(columnArray, currentPlayer) {
     //       this.currentPlayer = 1;
     //       break;
     //     }
-};
 //array location is equal to this.cellsArray[col][row]
 Board.prototype.checkWinner = function () {
   var board = this.cellsArray
@@ -186,16 +194,65 @@ var Game  = {
   play : function () {
     var currentPlayer = Game.board.currentPlayer;
     console.log('Play going!');
+    var $cells = $('#cells');
+    console.log($cells)
     var $columns = $('.col');
     console.log($columns);
     $columns.click(function () {
+      //If Column One is clicked
       if (this.id === "col1") {
+        //Check for the lowest free spot and add piece.
         console.log('Column 1 has been clicked by ' + currentPlayer);
-        Game.board.makePlay(currentPlayer);
+        if ($('#0-0').text() === "") {
+          $('#0-0').text(currentPlayer);
+          Game.board.cellsArray[0][0].value = currentPlayer;
+        }
+        else if ($('#0-1').text() === "") {
+          $('#0-1').text(currentPlayer);
+            Game.board.cellsArray[0][1].value = currentPlayer;
+        }
+        else if ($('#0-2').text() === "") {
+          $('#0-2').text(currentPlayer);
+            Game.board.cellsArray[0][2].value = currentPlayer;
+        }
+        else if ($('#0-3').text() === "") {
+          $('#0-3').text(currentPlayer);
+            Game.board.cellsArray[0][3].value = currentPlayer;
+        }
+        else if ($('#0-4').text() === "") {
+          $('#0-4').text(currentPlayer);
+            Game.board.cellsArray[0][4].value = currentPlayer;
+        }
+        else if ($('#0-5').text() === "") {
+          $('#0-5').text(currentPlayer);
+            Game.board.cellsArray[0][5].value = currentPlayer;
+        }
+        else alert('This column is full!')
       }
+
       else if (this.id === "col2") {
         console.log('Column 2 has been clicked by ' + currentPlayer);
+        if ($('#1-0').text() === "") {
+          $('#1-0').text(currentPlayer)
+        }
+        else if ($('#1-1').text() === "") {
+          $('#1-1').text(currentPlayer);
+        }
+        else if ($('#1-2').text() === "") {
+          $('#1-2').text(currentPlayer);
+        }
+        else if ($('#1-3').text() === "") {
+          $('#1-3').text(currentPlayer);
+        }
+        else if ($('#1-4').text() === "") {
+          $('#1-4').text(currentPlayer);
+        }
+        else if ($('#1-5').text() === "") {
+          $('#1-5').text(currentPlayer);
+        }
+        else alert('This column is full!')
       }
+
       else if (this.id === "col3") {
         console.log('Column 3 has been clicked by ' + currentPlayer);
       }
