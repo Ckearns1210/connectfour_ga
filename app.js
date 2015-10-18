@@ -5,14 +5,14 @@ var Cell = function() {
   this.value = null;
 }
 
-Cell.prototype.setState = function(player) {
-  this.value === player;
-  }
-
-
-Cell.prototype.render = function() {
-  return this.value;
-}
+// Cell.prototype.setState = function(player) {
+//   this.value === player;
+//   }
+//
+//
+// Cell.prototype.render = function() {
+//   return this.value;
+// }
 
 
 //Board constructors
@@ -116,7 +116,7 @@ Board.prototype.makePlay = function(columnArray, currentPlayer) {
     //     }
 };
 //array location is equal to this.cellsArray[col][row]
-Board.prototype.checkWinner = function (board) {
+Board.prototype.checkWinner = function () {
   var board = this.cellsArray
   // console.log(board);
 //Check horizontal
@@ -125,6 +125,9 @@ Board.prototype.checkWinner = function (board) {
         // console.log(((board[r][c].value === board[r+1][c].value) && (board[r+1][c].value === board[r+2][c].value) && (board[r+2][c].value === board[r+3][c].value)))
         if ((board[r][c].value === board[r+1][c].value) && (board[r+1][c].value === board[r+2][c].value) && (board[r+2][c].value === board[r+3][c].value)) {
           if(board[r][c].value !== null) {
+
+          this.winner = this.currentplayer;
+          this.winnerFound = true;
           return 'is the winner!';
         }
       }
@@ -135,6 +138,8 @@ Board.prototype.checkWinner = function (board) {
     for (var c = 0; c < 3; c++) {
       if ((board[r][c].value === board[r][c+1].value) && (board[r][c+1].value === board[r][c+2].value) && (board[r][c+2].value === board[r][c+3].value)) {
         if(board[r][c].value !== null) {
+          this.winner = this.currentplayer;
+          this.winnerFound = true;
           return 'is the winner!';
         }
       }
@@ -146,6 +151,8 @@ Board.prototype.checkWinner = function (board) {
       for (var c = 0; c < 3; c++) {
         if ((board[r][c].value === board[r+1][c+1].value) && (board[r+1][c+1].value === board[r+2][c+2].value) && (board[r+2][c+2].value === board[r+3][c+3].value))  {
           if(board[r][c].value !== null) {
+            this.winner = this.currentplayer;
+            this.winnerFound = true;
             return 'is the winner!';
           }
         }
@@ -157,21 +164,100 @@ Board.prototype.checkWinner = function (board) {
         for (var c = 0; c < 3; c++) {
           if ((board[r][c].value === board[r-1][c+1].value) && (board[r-1][c+1].value === board[r-2][c+2].value) && (board[r-2][c+2].value === board[r-3][c+3].value)) {
             if(board[r][c].value !== null) {
+              this.winner = this.currentplayer;
+              this.winnerFound = true;
               return 'is the winner!';
           }
         }
       }
     }
-  }
+  };
 
+var Game  = {
+  board : null,
+  makeBoard : function () {
+    this.board = new Board ();
+    console.log('New board is made!');
+  },
+  start : function () {
+    this.board.startGame();
+    console.log('Game has started!');
+  },
+  play : function () {
+    var currentPlayer = Game.board.currentPlayer;
+    console.log('Play going!');
+    var $columns = $('.col');
+    console.log($columns);
+    $columns.click(function () {
+      if (this.id === "col1") {
+        console.log('Column 1 has been clicked by ' + currentPlayer);
+        Game.board.makePlay(currentPlayer);
+      }
+      else if (this.id === "col2") {
+        console.log('Column 2 has been clicked by ' + currentPlayer);
+      }
+      else if (this.id === "col3") {
+        console.log('Column 3 has been clicked by ' + currentPlayer);
+      }
+      else if (this.id === "col4") {
+        console.log('Column 4 has been clicked by ' + currentPlayer);
+      }
+      else if (this.id === "col5") {
+        console.log('Column 5 has been clicked by ' + currentPlayer);
+      }
+      else if (this.id === "col6") {
+        console.log('Column 6 has been clicked by ' + currentPlayer);
+      }
+      else console.log('Column 7 has been clicked by ' + currentPlayer);
+    })
+
+  //   var $col1 = $('#col1');
+  //   console.log($col1);
+  //   $col1.click(function () {
+  //     console.log('Column 1 has been clicked!')
+  //   });
+  //   var $col2 = $('#col2');
+  //   console.log($col2);
+  //   $col2.click(function () {
+  //     console.log('Column 2 has been clicked!')
+  //   });
+  //   var $col3 = $('#col3');
+  //   console.log($col3);
+  //   $col3.click(function () {
+  //     console.log('Column 3 has been clicked!')
+  //   });
+  //   var $col4 = $('#col4');
+  //   console.log($col4);
+  //   $col4.click(function () {
+  //     console.log('Column 4 has been clicked!')
+  //   });
+  //   var $col5 = $('#col5');
+  //   console.log($col5);
+  //   $col5.click(function () {
+  //     console.log('Column 5 has been clicked!')
+  //   });
+  //   var $col6 = $('#col6');
+  //   console.log($col6);
+  //   $col6.click(function () {
+  //     console.log('Column 6 has been clicked!')
+  //   });
+  //   var $col7 = $('#col7');
+  //   console.log($col7);
+  //   $col7.click(function () {
+  //     console.log('Column 7 has been clicked!')
+  //   });
+  },
+}
 
 
 
 
 
 //Board Tester
-b = new Board;
-b.startGame();
+Game.makeBoard();
+Game.start();
+Game.play(this.currentPlayer);
+
 // b.makePlay(b.cellsArray[5], "blue");
 // b.makePlay(b.cellsArray[4], "blue");
 // b.makePlay(b.cellsArray[3], "blue");
