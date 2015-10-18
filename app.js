@@ -107,11 +107,11 @@ Board.prototype.startGame = function () {
 //     else alert('You can\'t just shove a piece in here, it is full!');
 Board.prototype.switchPlayer = function () {
   switch(this.currentPlayer){
-        case blue:
-        this.currentPlayer = red;
+        case 'blue':
+        this.currentPlayer = 'red';
         break;
-        case 2:
-        this.currentPlayer = 1;
+        case 'red':
+        this.currentPlayer = 'blue';
         break;
       }
 }
@@ -192,7 +192,6 @@ var Game  = {
     console.log('Game has started!');
   },
   play : function () {
-    var currentPlayer = Game.board.currentPlayer;
     console.log('Play going!');
     var $cells = $('#cells');
     console.log($cells);
@@ -200,6 +199,7 @@ var Game  = {
     console.log($columns);
 
     $columns.click(function () {
+      var currentPlayer = Game.board.currentPlayer;
       //If Column One is clicked
       if (this.id === "col1") {
         //Check for the lowest free spot and add piece.
@@ -400,6 +400,7 @@ var Game  = {
         }
           else alert('This column is full!');
       }
+        Game.board.switchPlayer();
     })
   }
 };
