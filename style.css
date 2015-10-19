@@ -21,27 +21,29 @@ body {
   font-size: 65px;
 }
 #container {
-  width: 75%;
-  width: 525px;
-  height: 450px;
+  width: 575px;
+  height: 470px;
   margin: 25px auto ;
   padding: 10px;
+  overflow: auto;
+
 }
 
 .col {
-  width: 75px;
-  height: 450px;
+  width: 14.28%;
+  height: 100%;
   margin: 0 auto;
   float: left;
+  box-sizing: border-box;
 
 }
 
 .cell {
   box-sizing: border-box;
-  float: left;
+  /*float: left;*/
   border: 1px solid #F6FCFB;
-  width: 75px;
-  height: 75px;
+  width: 100%;
+  height: 16.66%;
   text-align: center;
 }
 
@@ -66,13 +68,48 @@ body {
 }
 
 #currentplayer1 {
-  padding: 100px;
+  padding: 50px;
   float: left;
   font-size: 25px;
 }
 
 #currentplayer2 {
-  padding: 100px;
+  padding: 50px;
   float: right;
   font-size: 25px;
+}
+
+@media screen and (min-width: 1101px) and (max-width: 1215px) {
+
+    #container {
+      display: block;
+  }
+  #currentplayer1 {
+    padding: 10px;
+    float: left;
+    font-size: 25px;
+  }
+
+  #currentplayer2 {
+    padding: 10px;
+    float: right;
+    font-size: 25px;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+
+  #currentplayer1 {
+    padding: 10px;
+    font-size: 25px;
+    float: none;
+    display: block;
+  }
+
+  #currentplayer2 {
+    padding: 10px;
+    font-size: 25px;
+    float: none;
+    display: block;
+  }
 }
