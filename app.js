@@ -127,6 +127,7 @@ Board.prototype.checkWin = function (currentPlayer) {
     }
   };
 
+
   //Clears body and displays win message and image.
   Board.prototype.displayWinner = function (currentPlayer) {
     $('body').empty().append("<div id = 'winner-message'>");
