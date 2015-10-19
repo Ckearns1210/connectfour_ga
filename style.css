@@ -81,7 +81,12 @@ body {
 
 @media screen and (min-width: 1101px) and (max-width: 1215px) {
 
-    #container {
+
+  #heading {
+    font-size: 45px;
+  }
+
+  #container {
       display: block;
   }
   #currentplayer1 {
@@ -99,7 +104,18 @@ body {
 
 @media screen and (max-width: 1100px) {
 
+  #heading {
+    font-size: 35px;
+    font-weight: bold;
+  }
+
+  #quote {
+    display: hidden;
+  }
+
+
   #currentplayer1 {
+    font-size: 15px;
     padding: 10px;
     font-size: 25px;
     float: none;
@@ -107,6 +123,7 @@ body {
   }
 
   #currentplayer2 {
+    font-size: 15px;
     padding: 10px;
     font-size: 25px;
     float: none;
