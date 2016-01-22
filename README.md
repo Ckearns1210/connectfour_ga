@@ -1,4 +1,31 @@
-# connectfour_ga
-First GA Project - Connect Four 
-  This project was a first attempt at using a mix of Javascript, Jquery, HTML5, and CSS3 to create a working application.  It is meant to be played by two players, and functions like the game Connect Four.   It was created in an object oriented way, using constructors to create the playable cells, and the board, each with prototypes.  The game itself was represented by an object literal.  
-  A working game can be found here:  http://assembler-anticipation-31347.bitballoon.com/;
+# Drake Four
+
+## A Drake Themed Connect-Four Game
+
+# Authors:
+[ckearns1210](https://github.com/ckearns1210)
+
+
+## Contributing
+
+You can contribute in several ways:
+
+## Bug Reports:
+
+Who likes bugs? Provide a detailed report of any bugs you encounter and open an issue on our repo's issues section
+
+## Documentation:
+
+Like fixing typos or adding to documentation? We encourage you to fork our project project, make your changes, and submit a pull request. Extra sets of eyes and fresh perspectives are wanted and welcome.
+
+## Fixes:
+
+See a problem that you have a solution for? You're more than welcome to make a fix and submit it as a pull request.
+
+
+
+Code released for entertainment and educational purposes.
+
+Please contact authors for additional usage.
+
+![alt tag](https://github.com/Ckearns1210/connectfour_ga/blob/master/screenshot/Screen%20Shot%202016-01-02%20at%203.53.52%20PM.png?raw=true)
